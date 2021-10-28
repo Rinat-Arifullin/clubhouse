@@ -1,21 +1,24 @@
-import React from 'react';
-import clsx from 'clsx';
-import { useRouter } from 'next/router';
-import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button';
-import { StepInfo } from '../../StepInfo';
-import Axios from '../../../core/axios';
+import React from "react";
+import { NextComponentType } from "next";
+import clsx from "clsx";
+import { WhiteBlock } from "@components/WhiteBlock";
+import { StepInfo } from "@components/StepInfo";
+import Button from "@components/Button";
+import Axios from "@core/axios";
+import { useRouter } from "next/router";
 
-import styles from './EnterPhoneStep.module.scss';
+import styles from "./EnterPhoneStep.module.scss";
 
-export const EnterCodeStep = () => {
+export const EnterCodeStep: NextComponentType = () => {
   const router = useRouter();
+
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [codes, setCodes] = React.useState(['', '', '', '']);
+  const [codes, setCodes] = React.useState(["", "", "", ""]);
+
   const nextDisabled = codes.some((v) => !v);
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const index = Number(event.target.getAttribute('id'));
+    const index = Number(event.target.getAttribute("id"));
     const value = event.target.value;
     setCodes((prev) => {
       const newArr = [...prev];
@@ -30,22 +33,25 @@ export const EnterCodeStep = () => {
   const onSubmit = async () => {
     try {
       setIsLoading(true);
-      await Axios.get('/todos');
-      router.push('/rooms');
+      await Axios.get("/todos");
+      router.push("/rooms");
     } catch (error) {
-      alert('Ошибка при активации!');
+      alert("Ошибка при активации!");
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   return (
     <div className={styles.block}>
       {!isLoading ? (
         <>
-          <StepInfo icon="/static/numbers.png" title="Enter your activate code" />
-          <WhiteBlock className={clsx('m-auto mt-30', styles.whiteBlock)}>
-            <div className={clsx('mb-30', styles.codeInput)}>
+          <StepInfo
+            icon="/static/numbers.png"
+            title="Enter your activate code"
+          />
+          <WhiteBlock className={clsx("m-auto mt-30", styles.whiteBlock)}>
+            <div className={clsx("mb-30", styles.codeInput)}>
               {codes.map((code, index) => (
                 <input
                   key={index}

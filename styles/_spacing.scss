@@ -1,8 +1,8 @@
 $sides: (
-  "top": "t",
-  "right": "r",
-  "bottom": "b",
-  "left": "l",
+  'top': 't',
+  'right': 'r',
+  'bottom': 'b',
+  'left': 'l',
 );
 
 @each $side, $letter in $sides {
@@ -37,11 +37,11 @@ $sides: (
   padding: 0 var(--spacing--30);
 }
 
-.pv-40 {
-  padding: var(--spacing--30) 0;
+.ph-40 {
+  padding: var(--spacing--40) 0;
 }
 
-.pd-20 {
+.pb-20 {
   padding-bottom: var(--spacing--20);
 }
 

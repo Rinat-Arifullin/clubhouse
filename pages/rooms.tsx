@@ -1,5 +1,14 @@
+import { Header } from "components/Header";
+
 const Rooms = () => {
-  return <h1>Rooms</h1>;
+  return (
+    <>
+      <Header />
+      <div className="container">
+        <h1>Rooms</h1>
+      </div>
+    </>
+  );
 };
 
 export default Rooms;

@@ -1,21 +1,27 @@
 import clsx from "clsx";
-import { ReactNode } from "react";
+import React from "react";
 import styles from "./Button.module.scss";
 
-type TButton = {
-  children?: ReactNode;
-  disabled?: boolean;
-  color?: "green" | "gray";
-  className?: string;
-  onClick?: () => void;
+const colors = {
+  green: styles.buttonGreen,
+  gray: styles.buttonGray,
+  blue: styles.buttonBlue,
 };
 
-const Button = ({ children, disabled, color, className, onClick }: TButton) => {
-  const colors = {
-    green: styles.buttonGreen,
-    gray: styles.buttonGray,
-  };
+interface IButtonProps {
+  disabled?: boolean;
+  color?: keyof typeof colors;
+  className?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
+const Button: React.FC<IButtonProps> = ({
+  children,
+  disabled,
+  color,
+  className,
+  onClick,
+}) => {
   return (
     <button
       onClick={onClick}
