@@ -1,18 +1,20 @@
-import React from 'react';
-import clsx from 'clsx';
-import { WhiteBlock } from '../../WhiteBlock';
-import { Button } from '../../Button';
-import { StepInfo } from '../../StepInfo';
-import { Avatar } from '../../Avatar';
+import React, { useContext } from "react";
+import clsx from "clsx";
+import { WhiteBlock } from "@components/WhiteBlock";
+import Button from "@components/Button";
+import { StepInfo } from "@components/StepInfo";
+import Avatar from "@components/Avatar";
+import { StepsContext } from "@pages";
 
-import styles from './ChooseAvatarStep.module.scss';
-import { MainContext } from '../../../pages';
+import styles from "./ChooseAvatarStep.module.scss";
 
 export const ChooseAvatarStep: React.FC = () => {
-  const { onNextStep } = React.useContext(MainContext);
+  const { onNextStep } = useContext(StepsContext);
+
   const [avatarUrl, setAvatarUrl] = React.useState<string>(
-    'https://sun2-3.userapi.com/s/v1/if1/CAR1Aao3yIica7xq77xIIMMTn29CME-cE5JSJBc8OTNVt29JQjnhR0ZsX_9IO-AzgwVbfgB6.jpg?size=200x0&quality=96&crop=138,44,1048,1048&ava=1',
+    "https://batman-on-film.com/wp-content/uploads/2021/10/THEBATMAN-batman-poster-dcfd21-banner2-534x400.jpg"
   );
+
   const inputFileRef = React.useRef<HTMLInputElement>(null);
 
   const handleChangeImage = (event: Event): void => {
@@ -25,7 +27,7 @@ export const ChooseAvatarStep: React.FC = () => {
 
   React.useEffect(() => {
     if (inputFileRef.current) {
-      inputFileRef.current.addEventListener('change', handleChangeImage);
+      inputFileRef.current.addEventListener("change", handleChangeImage);
     }
   }, []);
 
@@ -33,10 +35,10 @@ export const ChooseAvatarStep: React.FC = () => {
     <div className={styles.block}>
       <StepInfo
         icon="/static/celebration.png"
-        title="Okay, Archakov Dennis!"
+        title="Okay, Rinat Arifullin!"
         description="How’s this photo?"
       />
-      <WhiteBlock className={clsx('m-auto mt-40', styles.whiteBlock)}>
+      <WhiteBlock className={clsx("m-auto mt-40", styles.whiteBlock)}>
         <div className={styles.avatar}>
           <Avatar width="120px" height="120px" src={avatarUrl} />
         </div>

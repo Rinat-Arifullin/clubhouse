@@ -1,16 +1,18 @@
 @import "./_display";
-@import "./_spacing.scss";
+@import "./_spacing";
 
+html,
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
+
   background-color: #f3efe4;
 }
 
 * {
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   outline: none;
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 a {
@@ -36,7 +38,7 @@ a {
 .field {
   min-width: 100px;
   height: 65px;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #e3e3e3;
   box-sizing: border-box;
   border-radius: 20px;

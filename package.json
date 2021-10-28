@@ -2,28 +2,39 @@
   "name": "y",
   "version": "0.1.0",
   "private": true,
+  "baseUrl": ".",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "link-module-alias"
   },
   "dependencies": {
+    "axios": "^0.23.0",
     "clsx": "^1.1.1",
     "next": "11.1.2",
     "node-sass": "4.14",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-number-format": "^4.7.3"
   },
   "devDependencies": {
     "@types/react": "17.0.30",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
+    "link-module-alias": "^1.2.0",
     "typescript": "4.4.4"
   },
   "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
   "main": "next.config.js",
   "author": "",
   "license": "ISC",
-  "keywords": []
+  "keywords": [],
+  "_moduleAliases": {
+    "@components": "./components",
+    "@core": "./core",
+    "@styles": "./styles",
+    "@steps": "./components/steps"
+  }
 }

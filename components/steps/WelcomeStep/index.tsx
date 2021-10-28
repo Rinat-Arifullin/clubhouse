@@ -1,9 +1,13 @@
+import React from "react";
 import { NextComponentType } from "next";
-import Button from "../../Button";
-import WhiteBlock from "../../WhiteBlock";
+import { StepsContext } from "@pages";
+import Button from "@components/Button";
+import WhiteBlock from "@components/WhiteBlock";
 import styles from "./WelcomeStep.module.scss";
 
 export const WelcomeStep: NextComponentType = () => {
+  const { onNextStep } = React.useContext(StepsContext);
+
   return (
     <WhiteBlock className={styles.block}>
       <h3 className={styles.title}>
@@ -20,7 +24,7 @@ export const WelcomeStep: NextComponentType = () => {
         nothing breaks :)
       </p>
       <div>
-        <Button>
+        <Button onClick={onNextStep}>
           Get your username
           <img className="ml-5" src="/static/arrow.svg" />
         </Button>
