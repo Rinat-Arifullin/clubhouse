@@ -1,14 +1,14 @@
 import React from "react";
 import clsx from "clsx";
-import { WhiteBlock } from "@components/WhiteBlock";
-import { StepInfo } from "@components/StepInfo";
+import WhiteBlock from "components/WhiteBlock";
+import { StepInfo } from "components/StepInfo";
 
 import styles from "./EnterNameStep.module.scss";
 
-import Button from "@components/Button";
-import { StepsContext } from "@pages";
+import Button from "components/Button";
+import { StepsContext } from "pages";
 
-export const EnterNameStep: React.FC = () => {
+const EnterNameStep: React.FC = () => {
   const [inputValue, setInputValue] = React.useState<string>("");
   const { onNextStep } = React.useContext(StepsContext);
 
@@ -42,3 +42,5 @@ export const EnterNameStep: React.FC = () => {
     </div>
   );
 };
+
+export default EnterNameStep;

@@ -1,23 +1,22 @@
 import React from "react";
 import clsx from "clsx";
 import NumberFormat from "react-number-format";
-import { WhiteBlock } from "@components/WhiteBlock";
-import Button from "@components/Button";
-import { StepInfo } from "@components/StepInfo";
+import WhiteBlock from "components/WhiteBlock";
+import Button from "components/Button";
+import { StepInfo } from "components/StepInfo";
 
 import styles from "./EnterPhoneStep.module.scss";
-import { StepsContext } from "@pages";
-import { NextComponentType } from "next";
+import { StepsContext } from "pages";
 
-type InputValueState = {
+interface IInputValueState {
   formattedValue: string;
   value: string;
-};
+}
 
-export const EnterPhoneStep: NextComponentType = () => {
+const EnterPhoneStep: React.FC = () => {
   const { onNextStep } = React.useContext(StepsContext);
-  const [values, setValues] = React.useState<InputValueState>(
-    {} as InputValueState
+  const [values, setValues] = React.useState<IInputValueState>(
+    {} as IInputValueState
   );
 
   const nextDisabled =
@@ -56,3 +55,5 @@ export const EnterPhoneStep: NextComponentType = () => {
     </div>
   );
 };
+
+export default EnterPhoneStep;

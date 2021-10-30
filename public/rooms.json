@@ -1,0 +1,171 @@
+[
+  {
+    "id": "617c82378fb2c13057cf7a84",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 141,
+    "speakersCount": 3,
+    "picture": "http://placehold.it/32x32",
+    "title": "Cillum adipisicing duis pariatur nostrud consectetur voluptate pariatur.",
+    "guests": [
+      "Vasya Puplin",
+      "Jojo Mojo",
+      "Мафиозник",
+      "Генадий Горин"
+    ]
+  },
+  {
+    "id": "617c8237fd7a8a2d78a0cd9a",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 170,
+    "speakersCount": 11,
+    "picture": "http://placehold.it/32x32",
+    "title": "Proident culpa nisi sint quis.",
+    "guests": [
+      "Мафиозник",
+      "Amon Bower",
+      "Jojo Mojo",
+      "Мафиозник"
+    ]
+  },
+  {
+    "id": "617c8237becd3beaef5570d0",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 111,
+    "speakersCount": 15,
+    "picture": "http://placehold.it/32x32",
+    "title": "Nisi voluptate dolore commodo id reprehenderit laboris duis do.",
+    "guests": [
+      "Jojo Mojo",
+      "Генадий Горин",
+      "Мафиозник",
+      "Генадий Горин"
+    ]
+  },
+  {
+    "id": "617c82370a80cfa1a743b5ed",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 212,
+    "speakersCount": 8,
+    "picture": "http://placehold.it/32x32",
+    "title": "Velit elit cillum occaecat occaecat tempor aliquip excepteur laborum veniam et proident commodo ea reprehenderit.",
+    "guests": [
+      "Генадий Горин",
+      "Vasya Puplin",
+      "Jojo Mojo",
+      "Amon Bower"
+    ]
+  },
+  {
+    "id": "617c82377c02f57952baa0ab",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 17,
+    "speakersCount": 3,
+    "picture": "http://placehold.it/32x32",
+    "title": "Elit ut fugiat ipsum deserunt et elit sit pariatur eiusmod in enim irure fugiat.",
+    "guests": [
+      "Мафиозник",
+      "Генадий Горин",
+      "Мафиозник",
+      "Vasya Puplin"
+    ]
+  },
+  {
+    "id": "617c8237c79e619ae92b737e",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 22,
+    "speakersCount": 14,
+    "picture": "http://placehold.it/32x32",
+    "title": "Elit ullamco qui proident sunt veniam amet elit sint adipisicing dolore sit et.",
+    "guests": [
+      "Генадий Горин",
+      "Jojo Mojo",
+      "Jojo Mojo",
+      "Мафиозник"
+    ]
+  },
+  {
+    "id": "617c82373b708f5f63e01449",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1"
+    ],
+    "guestsCount": 251,
+    "speakersCount": 11,
+    "picture": "http://placehold.it/32x32",
+    "title": "Sint consectetur enim aute aliquip minim.",
+    "guests": [
+      "Jojo Mojo",
+      "Генадий Горин",
+      "Мафиозник",
+      "Мафиозник"
+    ]
+  },
+  {
+    "id": "617c8237eb405450cde516e0",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 34,
+    "speakersCount": 10,
+    "picture": "http://placehold.it/32x32",
+    "title": "Officia veniam amet incididunt irure.",
+    "guests": [
+      "Amon Bower",
+      "Генадий Горин",
+      "Мафиозник",
+      "Генадий Горин"
+    ]
+  },
+  {
+    "id": "617c823787d16b8be038dcb5",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 158,
+    "speakersCount": 12,
+    "picture": "http://placehold.it/32x32",
+    "title": "Labore ex consectetur aliqua officia occaecat.",
+    "guests": [
+      "Vasya Puplin",
+      "Vasya Puplin",
+      "Генадий Горин",
+      "Vasya Puplin"
+    ]
+  },
+  {
+    "id": "617c8237f6cba36555413340",
+    "avatars": [
+      "https://source.unsplash.com/random/100x100?1",
+      "https://source.unsplash.com/random/100x100?2"
+    ],
+    "guestsCount": 59,
+    "speakersCount": 4,
+    "picture": "http://placehold.it/32x32",
+    "title": "Dolor laborum Lorem esse laborum laboris sit ut mollit anim officia.",
+    "guests": [
+      "Jojo Mojo",
+      "Vasya Puplin",
+      "Генадий Горин",
+      "Vasya Puplin"
+    ]
+  }
+]

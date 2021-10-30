@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import clsx from "clsx";
-import { WhiteBlock } from "@components/WhiteBlock";
-import Button from "@components/Button";
-import { StepInfo } from "@components/StepInfo";
-import Avatar from "@components/Avatar";
-import { StepsContext } from "@pages";
+import WhiteBlock from "components/WhiteBlock";
+import Button from "components/Button";
+import { StepInfo } from "components/StepInfo";
+import Avatar from "components/Avatar";
+import { StepsContext } from "pages";
 
 import styles from "./ChooseAvatarStep.module.scss";
 
-export const ChooseAvatarStep: React.FC = () => {
-  const { onNextStep } = useContext(StepsContext);
+const ChooseAvatarStep: React.FC = () => {
+  const { onNextStep } = React.useContext(StepsContext);
 
   const [avatarUrl, setAvatarUrl] = React.useState<string>(
     "https://batman-on-film.com/wp-content/uploads/2021/10/THEBATMAN-batman-poster-dcfd21-banner2-534x400.jpg"
@@ -56,3 +56,5 @@ export const ChooseAvatarStep: React.FC = () => {
     </div>
   );
 };
+
+export default ChooseAvatarStep;

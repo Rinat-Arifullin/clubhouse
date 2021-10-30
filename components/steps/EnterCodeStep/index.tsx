@@ -1,15 +1,14 @@
 import React from "react";
-import { NextComponentType } from "next";
 import clsx from "clsx";
-import { WhiteBlock } from "@components/WhiteBlock";
-import { StepInfo } from "@components/StepInfo";
-import Button from "@components/Button";
-import Axios from "@core/axios";
+import WhiteBlock from "components/WhiteBlock";
+import { StepInfo } from "components/StepInfo";
+import Button from "components/Button";
+import Axios from "core/axios";
 import { useRouter } from "next/router";
 
 import styles from "./EnterPhoneStep.module.scss";
 
-export const EnterCodeStep: NextComponentType = () => {
+const EnterCodeStep: React.FC = () => {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -79,3 +78,5 @@ export const EnterCodeStep: NextComponentType = () => {
     </div>
   );
 };
+
+export default EnterCodeStep;
