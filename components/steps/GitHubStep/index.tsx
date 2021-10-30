@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import Cookies from "js-cookie";
-import { WhiteBlock } from "@components/WhiteBlock";
-import Button from "@components/Button";
-import { StepInfo } from "@components/StepInfo";
+import WhiteBlock from "components/WhiteBlock";
+import Button from "components/Button";
+import { StepInfo } from "components/StepInfo";
 
 import styles from "./GitHubStep.module.scss";
 import React from "react";
 
-export const GitHubStep: React.FC = () => {
+const GitHubStep: React.FC = () => {
   const onClickAuth = () => {
     window.open(
       "http://localhost:3001/auth/github",
@@ -49,3 +49,4 @@ export const GitHubStep: React.FC = () => {
     </div>
   );
 };
+export default GitHubStep;

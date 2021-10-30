@@ -1,13 +1,13 @@
 import clsx from "clsx";
-import { WhiteBlock } from "@components/WhiteBlock";
-import { StepInfo } from "@components/StepInfo";
+import WhiteBlock from "components/WhiteBlock";
+import { StepInfo } from "components/StepInfo";
 
 import styles from "./TwitterStep.module.scss";
 import React from "react";
-import Button from "@components/Button";
-import { StepsContext } from "@pages";
+import Button from "components/Button";
+import { StepsContext } from "pages";
 
-export const TwitterStep: React.FC = () => {
+const TwitterStep: React.FC = () => {
   const { onNextStep } = React.useContext(StepsContext);
 
   return (
@@ -48,3 +48,5 @@ export const TwitterStep: React.FC = () => {
     </div>
   );
 };
+
+export default TwitterStep;

@@ -1,11 +1,10 @@
 import React from "react";
-import { NextComponentType } from "next";
-import { StepsContext } from "@pages";
-import Button from "@components/Button";
-import WhiteBlock from "@components/WhiteBlock";
+import { StepsContext } from "pages";
+import Button from "components/Button";
+import WhiteBlock from "components/WhiteBlock";
 import styles from "./WelcomeStep.module.scss";
 
-export const WelcomeStep: NextComponentType = () => {
+const WelcomeStep: React.FC = () => {
   const { onNextStep } = React.useContext(StepsContext);
 
   return (
@@ -33,3 +32,5 @@ export const WelcomeStep: NextComponentType = () => {
     </WhiteBlock>
   );
 };
+
+export default WelcomeStep;

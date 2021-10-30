@@ -2,12 +2,12 @@ import React from "react";
 import type { NextComponentType, NextPage } from "next";
 import Head from "next/head";
 
-import { WelcomeStep } from "@steps/WelcomeStep";
-import { EnterNameStep } from "@steps/EnterNameStep";
-import { TwitterStep } from "@steps/TwitterStep";
-import { ChooseAvatarStep } from "@steps/ChooseAvatarStep";
-import { EnterPhoneStep } from "@steps/EnterPhoneStep";
-import { EnterCodeStep } from "@steps/EnterCodeStep";
+import WelcomeStep from "@steps/WelcomeStep";
+import EnterNameStep from "@steps/EnterNameStep";
+import TwitterStep from "@steps/TwitterStep";
+import ChooseAvatarStep from "@steps/ChooseAvatarStep";
+import EnterPhoneStep from "@steps/EnterPhoneStep";
+import EnterCodeStep from "@steps/EnterCodeStep";
 
 interface IStepsComponents {
   [key: number]: NextComponentType;
@@ -22,13 +22,13 @@ const stepsComponent: IStepsComponents = {
   5: EnterCodeStep,
 };
 
-type TMainContextProps = {
+interface IStepsContextProps {
   onNextStep: () => void;
   step: number;
-};
+}
 
-export const StepsContext = React.createContext<TMainContextProps>(
-  {} as TMainContextProps
+export const StepsContext = React.createContext<IStepsContextProps>(
+  {} as IStepsContextProps
 );
 
 const Home: NextPage = () => {

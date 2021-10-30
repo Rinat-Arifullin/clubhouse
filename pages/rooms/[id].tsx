@@ -4,9 +4,14 @@ import BackButton from "components/BackButton";
 import Room from "components/Room";
 import Axios from "core/axios";
 import { TConversationCard } from "components/ConversationCard";
+import { GetServerSideProps, NextPageContext } from "next";
 
 interface IRoomProps {
   room: TConversationCard;
+}
+
+interface IContext extends NextPageContext {
+  id: string;
 }
 
 export default function RoomPage(props: IRoomProps) {
@@ -22,11 +27,13 @@ export default function RoomPage(props: IRoomProps) {
   );
 }
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async (context: IContext) => {
   try {
-    const { id } = context;
+    const { id: roomId } = context.query;
     const { data: rooms } = await Axios.get("/rooms.json");
-    const room = (rooms as TConversationCard[]).find((room) => room.id === id);
+    const room = (rooms as TConversationCard[]).find(
+      (room) => room.id === roomId
+    );
     return {
       props: { room: room ?? null },
     };
