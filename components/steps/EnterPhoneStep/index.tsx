@@ -14,10 +14,10 @@ interface IInputValueState {
 }
 
 const EnterPhoneStep: React.FC = () => {
-  const { onNextStep } = React.useContext(StepsContext);
-  const [values, setValues] = React.useState<IInputValueState>(
-    {} as IInputValueState
-  );
+  const { onNextStep, user } = React.useContext(StepsContext);
+  const [values, setValues] = React.useState<IInputValueState>({
+    value: user?.phone.length ? user?.phone : "",
+  } as IInputValueState);
 
   const nextDisabled =
     !values.formattedValue || values.formattedValue.includes("_");

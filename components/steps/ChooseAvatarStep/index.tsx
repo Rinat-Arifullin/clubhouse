@@ -7,12 +7,12 @@ import Avatar from "components/Avatar";
 import { StepsContext } from "pages";
 
 import styles from "./ChooseAvatarStep.module.scss";
-
+// "https://batman-on-film.com/wp-content/uploads/2021/10/THEBATMAN-batman-poster-dcfd21-banner2-534x400.jpg"
 const ChooseAvatarStep: React.FC = () => {
-  const { onNextStep } = React.useContext(StepsContext);
+  const { onNextStep, user } = React.useContext(StepsContext);
 
   const [avatarUrl, setAvatarUrl] = React.useState<string>(
-    "https://batman-on-film.com/wp-content/uploads/2021/10/THEBATMAN-batman-poster-dcfd21-banner2-534x400.jpg"
+    user?.avatarUrl ?? ""
   );
 
   const inputFileRef = React.useRef<HTMLInputElement>(null);

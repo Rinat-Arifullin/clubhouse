@@ -1,31 +1,43 @@
 import clsx from "clsx";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import WhiteBlock from "components/WhiteBlock";
 import Button from "components/Button";
 import { StepInfo } from "components/StepInfo";
 
 import styles from "./GitHubStep.module.scss";
 import React from "react";
+import { IUser, StepsContext } from "@pages";
 
 const GitHubStep: React.FC = () => {
+  const { onNextStep, setUser } = React.useContext(StepsContext);
   const onClickAuth = () => {
-    window.open(
+    const win = window.open(
       "http://localhost:3001/auth/github",
       "Auth",
-      "width=500,height=500,status=yes,toolbar=no,menubar=no,location=no"
+      "width=1000px,height=600,status=yes,toolbar=no,location=no"
     );
+    const timer = setInterval(() => {
+      if (win?.closed) {
+        clearInterval(timer);
+        onNextStep();
+      }
+    }, 100);
   };
 
   React.useEffect(() => {
     window.addEventListener("message", ({ data, origin }) => {
-      const user: string = data;
-      if (typeof user === "string" && user.includes("avatarUrl")) {
-        Cookies.remove("token");
-        const json: UserData = JSON.parse(user);
-        setUserData(json);
-        onNextStep();
-        Cookies.set("token", json.token);
+      const user: IUser = data;
+      if (user.id && user.fullname) {
+        setUser(user);
       }
+
+      // if (typeof user === "string" && user.includes("avatarUrl")) {
+      // Cookies.remove("token");
+      // const json: UserData = JSON.parse(user);
+      // setUserData(json);
+      // onNextStep();
+      // Cookies.set("token", json.token);
+      // }
     });
   }, []);
 

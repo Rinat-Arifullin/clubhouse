@@ -9,6 +9,17 @@ import { StepsContext } from "pages";
 
 const TwitterStep: React.FC = () => {
   const { onNextStep } = React.useContext(StepsContext);
+  // const win = window.open(
+  //   "http://site.ru",
+  //   "Auth",
+  //   "width=1000px,height=400,status=yes,toolbar=no,location=no"
+  // );
+  // const timer = setInterval(() => {
+  //   if (win?.closed) {
+  //     clearInterval(timer);
+  //     onNextStep();
+  //   }
+  // }, 1000);
 
   return (
     <div className={styles.block}>

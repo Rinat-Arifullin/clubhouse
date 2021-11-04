@@ -9,8 +9,10 @@ import Button from "components/Button";
 import { StepsContext } from "pages";
 
 const EnterNameStep: React.FC = () => {
-  const [inputValue, setInputValue] = React.useState<string>("");
-  const { onNextStep } = React.useContext(StepsContext);
+  const { onNextStep, user } = React.useContext(StepsContext);
+  const [inputValue, setInputValue] = React.useState<string>(
+    user?.fullname ?? ""
+  );
 
   const nextDisabled = !inputValue;
 
