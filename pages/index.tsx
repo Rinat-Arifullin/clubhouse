@@ -21,8 +21,6 @@ export interface IUser {
   isActive: number;
   username: string;
   phone: string;
-  createdAt: string;
-  updatedAt: string;
 }
 
 const stepsComponent: IStepsComponents = {
@@ -36,13 +34,14 @@ const stepsComponent: IStepsComponents = {
 };
 
 interface IAuthContextProps {
-  onNextStep: () => void;
   step: number;
   user?: IUser;
-  setUser: (user: IUser) => void;
+  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+  onNextStep: () => void;
+  setFieldValue: (field: keyof IUser, value: string) => void;
 }
 
-export const StepsContext = React.createContext<IAuthContextProps>(
+export const AuthContext = React.createContext<IAuthContextProps>(
   {} as IAuthContextProps
 );
 
@@ -55,14 +54,26 @@ const Home: NextPage = () => {
     setStep((state) => state + 1);
   };
 
+  const setFieldValue = (field: string, value: string) => {
+    setUser(
+      (state) =>
+        ({
+          ...state,
+          [field]: value,
+        } as IUser)
+    );
+  };
+
   return (
     <div>
       <Head>
         <title>Clubhouse: Drop-in audio chat</title>
       </Head>
-      <StepsContext.Provider value={{ step, onNextStep, user, setUser }}>
+      <AuthContext.Provider
+        value={{ user, step, setUser, onNextStep, setFieldValue }}
+      >
         <StepComponent />
-      </StepsContext.Provider>
+      </AuthContext.Provider>
     </div>
   );
 };

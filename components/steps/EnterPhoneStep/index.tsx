@@ -1,12 +1,12 @@
 import React from "react";
 import clsx from "clsx";
-import NumberFormat from "react-number-format";
+import NumberFormat, { NumberFormatValues } from "react-number-format";
 import WhiteBlock from "components/WhiteBlock";
 import Button from "components/Button";
 import { StepInfo } from "components/StepInfo";
 
 import styles from "./EnterPhoneStep.module.scss";
-import { StepsContext } from "pages";
+import { AuthContext } from "pages";
 
 interface IInputValueState {
   formattedValue: string;
@@ -14,13 +14,24 @@ interface IInputValueState {
 }
 
 const EnterPhoneStep: React.FC = () => {
-  const { onNextStep, user } = React.useContext(StepsContext);
+  const { setFieldValue, onNextStep, user } = React.useContext(AuthContext);
+
   const [values, setValues] = React.useState<IInputValueState>({
     value: user?.phone.length ? user?.phone : "",
   } as IInputValueState);
 
   const nextDisabled =
     !values.formattedValue || values.formattedValue.includes("_");
+
+  const onChangeInput = (inputProps: NumberFormatValues) => {
+    const { formattedValue, value } = inputProps;
+    setValues({ formattedValue, value });
+  };
+
+  const onNext = () => {
+    setFieldValue("phone", values.formattedValue);
+    onNextStep();
+  };
 
   return (
     <div className={styles.block}>
@@ -38,12 +49,10 @@ const EnterPhoneStep: React.FC = () => {
             mask="_"
             placeholder="+7 (999) 333-22-11"
             value={values.value}
-            onValueChange={({ formattedValue, value }) =>
-              setValues({ formattedValue, value })
-            }
+            onValueChange={onChangeInput}
           />
         </div>
-        <Button disabled={nextDisabled} onClick={onNextStep}>
+        <Button disabled={nextDisabled} onClick={onNext}>
           Next
           <img className="d-ib ml-10" src="/static/arrow.svg" />
         </Button>
