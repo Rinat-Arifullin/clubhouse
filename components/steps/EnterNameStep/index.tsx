@@ -26,8 +26,6 @@ const EnterNameStep: React.FC = () => {
     onNextStep();
   };
 
-  console.log(user?.fullname);
-
   return (
     <div className={styles.block}>
       <StepInfo

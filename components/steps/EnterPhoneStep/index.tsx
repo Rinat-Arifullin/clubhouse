@@ -7,7 +7,7 @@ import { StepInfo } from "components/StepInfo";
 
 import styles from "./EnterPhoneStep.module.scss";
 import { AuthContext } from "pages";
-
+// TODO: to entities
 interface IInputValueState {
   formattedValue: string;
   value: string;

@@ -10,10 +10,12 @@ import EnterPhoneStep from "@steps/EnterPhoneStep";
 import EnterCodeStep from "@steps/EnterCodeStep";
 import GitHubStep from "components/steps/GitHubStep";
 
+// to entites
 interface IStepsComponents {
   [key: number]: NextComponentType;
 }
 
+// to entites
 export interface IUser {
   id: number;
   fullname: string;
@@ -33,11 +35,13 @@ const stepsComponent: IStepsComponents = {
   5: EnterCodeStep,
 };
 
+// to entites
 interface IAuthContextProps {
   step: number;
   user?: IUser;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
   onNextStep: () => void;
+  onPrevStep: () => void;
   setFieldValue: (field: keyof IUser, value: string) => void;
 }
 
@@ -46,12 +50,16 @@ export const AuthContext = React.createContext<IAuthContextProps>(
 );
 
 const Home: NextPage = () => {
-  const [step, setStep] = React.useState<number>(0);
+  const [step, setStep] = React.useState<number>(4);
   const [user, setUser] = React.useState<IUser>();
   const StepComponent = stepsComponent[step];
 
   const onNextStep = () => {
     setStep((state) => state + 1);
+  };
+
+  const onPrevStep = () => {
+    setStep((state) => state - 1);
   };
 
   const setFieldValue = (field: string, value: string) => {
@@ -70,7 +78,7 @@ const Home: NextPage = () => {
         <title>Clubhouse: Drop-in audio chat</title>
       </Head>
       <AuthContext.Provider
-        value={{ user, step, setUser, onNextStep, setFieldValue }}
+        value={{ user, step, setUser, onNextStep, onPrevStep, setFieldValue }}
       >
         <StepComponent />
       </AuthContext.Provider>
