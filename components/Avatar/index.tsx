@@ -4,11 +4,12 @@ import React from "react";
 import styles from "./Avatar.module.scss";
 
 interface AvatarProps {
-  src: string;
+  src?: string;
   width: string;
   height: string;
   className?: string;
   isVoice?: boolean;
+  letters?: string;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -17,17 +18,21 @@ const Avatar: React.FC<AvatarProps> = ({
   height,
   className,
   isVoice,
+  letters,
 }) => {
   return (
     <div
-      style={{ width, height, backgroundImage: `url(${src})` }}
+      style={{ width, height, backgroundImage: src ? `url(${src})` : "" }}
       className={clsx(
         styles.avatar,
         isVoice ? styles.avatarBorder : "",
         className,
-        "d-ib"
+        "d-ib",
+        { [styles.emptyAvatar]: !src }
       )}
-    ></div>
+    >
+      {!src && letters}
+    </div>
   );
 };
 

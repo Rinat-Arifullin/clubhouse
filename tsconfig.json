@@ -18,7 +18,7 @@
       "@components": ["./components"],
       "@core": ["./core"],
       "@pages": ["./pages"],
-      "@steps": ["./components/steps"]
+      "@mySteps": ["./components/steps"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

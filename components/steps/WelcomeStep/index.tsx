@@ -1,11 +1,11 @@
 import React from "react";
-import { StepsContext } from "pages";
+import { AuthContext } from "pages";
 import Button from "components/Button";
 import WhiteBlock from "components/WhiteBlock";
 import styles from "./WelcomeStep.module.scss";
 
 const WelcomeStep: React.FC = () => {
-  const { onNextStep } = React.useContext(StepsContext);
+  const { onNextStep } = React.useContext(AuthContext);
 
   return (
     <WhiteBlock className={styles.block}>

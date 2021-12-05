@@ -5,10 +5,10 @@ import { StepInfo } from "components/StepInfo";
 import styles from "./TwitterStep.module.scss";
 import React from "react";
 import Button from "components/Button";
-import { StepsContext } from "pages";
+import { AuthContext } from "pages";
 
 const TwitterStep: React.FC = () => {
-  const { onNextStep } = React.useContext(StepsContext);
+  const { onNextStep } = React.useContext(AuthContext);
   // const win = window.open(
   //   "http://site.ru",
   //   "Auth",

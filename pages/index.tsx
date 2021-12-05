@@ -2,27 +2,28 @@ import React from "react";
 import type { NextComponentType, NextPage } from "next";
 import Head from "next/head";
 
-import WelcomeStep from "@steps/WelcomeStep";
-import EnterNameStep from "@steps/EnterNameStep";
-import TwitterStep from "@steps/TwitterStep";
-import ChooseAvatarStep from "@steps/ChooseAvatarStep";
-import EnterPhoneStep from "@steps/EnterPhoneStep";
-import EnterCodeStep from "@steps/EnterCodeStep";
-import GitHubStep from "components/steps/GitHubStep";
+import WelcomeStep from "@mySteps/WelcomeStep";
+import EnterNameStep from "@mySteps/EnterNameStep";
+import TwitterStep from "@mySteps/TwitterStep";
+import ChooseAvatarStep from "@mySteps/ChooseAvatarStep";
+import EnterPhoneStep from "@mySteps/EnterPhoneStep";
+import EnterCodeStep from "@mySteps/EnterCodeStep";
+import GitHubStep from "@mySteps/GitHubStep";
 
+// to entites
 interface IStepsComponents {
   [key: number]: NextComponentType;
 }
 
+// to entites
 export interface IUser {
   id: number;
   fullname: string;
   avatarUrl?: string;
   isActive: number;
-  username: string;
+  username?: string;
   phone: string;
-  createdAt: string;
-  updatedAt: string;
+  token?: string;
 }
 
 const stepsComponent: IStepsComponents = {
@@ -35,14 +36,17 @@ const stepsComponent: IStepsComponents = {
   5: EnterCodeStep,
 };
 
+// to entites
 interface IAuthContextProps {
-  onNextStep: () => void;
   step: number;
   user?: IUser;
-  setUser: (user: IUser) => void;
+  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+  onNextStep: () => void;
+  onPrevStep: () => void;
+  setFieldValue: (field: keyof IUser, value: string) => void;
 }
 
-export const StepsContext = React.createContext<IAuthContextProps>(
+export const AuthContext = React.createContext<IAuthContextProps>(
   {} as IAuthContextProps
 );
 
@@ -55,14 +59,30 @@ const Home: NextPage = () => {
     setStep((state) => state + 1);
   };
 
+  const onPrevStep = () => {
+    setStep((state) => state - 1);
+  };
+
+  const setFieldValue = (field: string, value: string) => {
+    setUser(
+      (state) =>
+        ({
+          ...state,
+          [field]: value,
+        } as IUser)
+    );
+  };
+
   return (
     <div>
       <Head>
         <title>Clubhouse: Drop-in audio chat</title>
       </Head>
-      <StepsContext.Provider value={{ step, onNextStep, user, setUser }}>
+      <AuthContext.Provider
+        value={{ user, step, setUser, onNextStep, onPrevStep, setFieldValue }}
+      >
         <StepComponent />
-      </StepsContext.Provider>
+      </AuthContext.Provider>
     </div>
   );
 };

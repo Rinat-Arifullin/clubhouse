@@ -6,10 +6,11 @@ import { StepInfo } from "components/StepInfo";
 import styles from "./EnterNameStep.module.scss";
 
 import Button from "components/Button";
-import { StepsContext } from "pages";
+import { AuthContext } from "pages";
 
 const EnterNameStep: React.FC = () => {
-  const { onNextStep, user } = React.useContext(StepsContext);
+  const { setFieldValue, onNextStep, user } = React.useContext(AuthContext);
+
   const [inputValue, setInputValue] = React.useState<string>(
     user?.fullname ?? ""
   );
@@ -18,6 +19,11 @@ const EnterNameStep: React.FC = () => {
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+  };
+
+  const onNext = () => {
+    setFieldValue("fullname", inputValue);
+    onNextStep();
   };
 
   return (
@@ -36,7 +42,7 @@ const EnterNameStep: React.FC = () => {
             placeholder="Enter fullname"
           />
         </div>
-        <Button disabled={nextDisabled} onClick={onNextStep}>
+        <Button disabled={nextDisabled} onClick={onNext}>
           Next
           <img className="d-ib ml-10" src="/static/arrow.svg" />
         </Button>
