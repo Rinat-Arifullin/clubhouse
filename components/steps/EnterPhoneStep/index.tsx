@@ -7,6 +7,8 @@ import { StepInfo } from "components/StepInfo";
 
 import styles from "./EnterPhoneStep.module.scss";
 import { AuthContext } from "pages";
+import axios from "core/axios";
+import Cookies from "js-cookie";
 // TODO: to entities
 interface IInputValueState {
   formattedValue: string;
@@ -29,8 +31,20 @@ const EnterPhoneStep: React.FC = () => {
   };
 
   const onNext = () => {
-    setFieldValue("phone", values.formattedValue);
-    onNextStep();
+    axios
+      .get("/auth/sms", {
+        params: {
+          phone: user?.phone,
+        },
+        headers: {
+          authorization: "Berear " + Cookies.get("token"),
+        },
+      })
+      .then(() => {
+        setFieldValue("phone", values.formattedValue);
+        onNextStep();
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

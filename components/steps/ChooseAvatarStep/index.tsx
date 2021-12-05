@@ -9,12 +9,12 @@ import { AuthContext } from "pages";
 import styles from "./ChooseAvatarStep.module.scss";
 import { uploadFile } from "helpers/steps";
 
-const defaultAvatarUrl =
-  "https://batman-on-film.com/wp-content/uploads/2021/10/THEBATMAN-batman-poster-dcfd21-banner2-534x400.jpg";
-
 const ChooseAvatarStep: React.FC = () => {
   const { setFieldValue, onNextStep, user } = React.useContext(AuthContext);
-
+  const avatarLetters = user?.fullname
+    .split(" ")
+    .map((s) => s[0])
+    .join("");
   const inputFileRef = React.useRef<HTMLInputElement>(null);
 
   const handleChangeImage = async (event: Event) => {
@@ -40,11 +40,12 @@ const ChooseAvatarStep: React.FC = () => {
         description="How’s this photo?"
       />
       <WhiteBlock className={clsx("m-auto mt-40", styles.whiteBlock)}>
-        <div className={styles.avatar}>
+        <div className={clsx("mb-20", styles.avatar)}>
           <Avatar
             width="120px"
             height="120px"
-            src={user?.avatarUrl ?? defaultAvatarUrl}
+            src={user?.avatarUrl}
+            letters={avatarLetters}
           />
         </div>
         <div className="mb-30">

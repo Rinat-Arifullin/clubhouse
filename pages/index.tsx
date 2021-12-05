@@ -2,13 +2,13 @@ import React from "react";
 import type { NextComponentType, NextPage } from "next";
 import Head from "next/head";
 
-import WelcomeStep from "@steps/WelcomeStep";
-import EnterNameStep from "@steps/EnterNameStep";
-import TwitterStep from "@steps/TwitterStep";
-import ChooseAvatarStep from "@steps/ChooseAvatarStep";
-import EnterPhoneStep from "@steps/EnterPhoneStep";
-import EnterCodeStep from "@steps/EnterCodeStep";
-import GitHubStep from "components/steps/GitHubStep";
+import WelcomeStep from "@mySteps/WelcomeStep";
+import EnterNameStep from "@mySteps/EnterNameStep";
+import TwitterStep from "@mySteps/TwitterStep";
+import ChooseAvatarStep from "@mySteps/ChooseAvatarStep";
+import EnterPhoneStep from "@mySteps/EnterPhoneStep";
+import EnterCodeStep from "@mySteps/EnterCodeStep";
+import GitHubStep from "@mySteps/GitHubStep";
 
 // to entites
 interface IStepsComponents {
@@ -21,8 +21,9 @@ export interface IUser {
   fullname: string;
   avatarUrl?: string;
   isActive: number;
-  username: string;
+  username?: string;
   phone: string;
+  token?: string;
 }
 
 const stepsComponent: IStepsComponents = {
@@ -50,7 +51,7 @@ export const AuthContext = React.createContext<IAuthContextProps>(
 );
 
 const Home: NextPage = () => {
-  const [step, setStep] = React.useState<number>(4);
+  const [step, setStep] = React.useState<number>(0);
   const [user, setUser] = React.useState<IUser>();
   const StepComponent = stepsComponent[step];
 

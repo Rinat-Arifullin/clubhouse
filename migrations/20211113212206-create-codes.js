@@ -10,6 +10,7 @@ module.exports = {
       },
       code: {
         type: Sequelize.STRING,
+        allowNull: false,
         unique: true,
       },
       user_id: {

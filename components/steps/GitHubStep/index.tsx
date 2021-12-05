@@ -1,9 +1,8 @@
 import clsx from "clsx";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 import WhiteBlock from "components/WhiteBlock";
 import Button from "components/Button";
 import { StepInfo } from "components/StepInfo";
-
 import styles from "./GitHubStep.module.scss";
 import React from "react";
 import { AuthContext } from "@pages";
@@ -23,6 +22,7 @@ const GitHubStep: React.FC = () => {
       const { port } = new URL(origin);
       if (port === "3001") {
         setUser(data);
+        Cookies.set("token", data.token);
         onNextStep();
       }
       // if (typeof user === "string" && user.includes("avatarUrl")) {
